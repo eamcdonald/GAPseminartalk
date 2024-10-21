@@ -166,14 +166,13 @@
   In turn, this work was based on the paper by Androulidakis, Mohsen and Yuncken that can be found at \href{https://arxiv.org/abs/2201.12060v2}{arXiv:2201.12060}.
 \end{frame}
 
-\section{Asteroids}
 
+
+\section{Asteroids}\label{asteroids_section}
 \begin{frame}
   \huge{Section 0: Asteroids}
 \end{frame}
 
-
-\section{Asteroids}\label{asteroids_section}
 \begin{frame}
   \Huge{Part \ref{asteroids_section}: Asteroids}
 \end{frame}
@@ -297,10 +296,10 @@
 
 
 
-\section{Pseudodifferential calculus}
+\section{Pseudodifferential calculus}\label{psido_section}
 
 \begin{frame}
-    \huge{Section 1: Pseudodifferential calculus}
+    \huge{Section \ref{psido_section}: Pseudodifferential calculus}
 \end{frame}
 
 \begin{frame}{What is a pseudodifferential calculus?}
@@ -365,6 +364,8 @@
       \|u\|_{W^{s+k}_2(M)} \leq C_{s,D}(\|Du\|_{W^s_2(M)} + \|u\|_{W^{s}_2(M)}).
     \]
   \end{lemma}
+\end{frame}
+\begin{frame}{Why a pseudodifferential calculus?}
   \begin{proof}
     Let $Q$ be a parametrix for $D.$ For $u\in C^\infty(M),$ write
     \[
@@ -449,7 +450,7 @@
     One of the advantages of the van Erp-Yuncken point of view is that it generalises neatly to non-traditional weightings. 
     \pause
     
-    Let $0=H^0<H^1 < \cdots < H^N = TM$ be a filtration of the tangent bundle of a manifold $M.$ Let $\mathrm{DO}_H(M) = \bigcup_{k\geq 0} \mathrm{DO}_H^k(M)$ be the algebra of differential operators with orders counted so that vector fields in $H^j$ have order $j,$ for all $1\leq j\leq N.$ There is a natural notion of ``elliptic" for $\mathrm{DO}_H(M)$ (the Rockland condition).
+    Let $0=H^0<H^1 < \cdots < H^N = TM$ be a filtration of the tangent bundle of a manifold $M.$ Let $\mathrm{DO}_H(M) = \bigcup_{k\geq 0} \mathrm{DO}_H^k(M)$ be the algebra of differential operators with orders counted so that vector fields in $H^j$ have order $j,$ for all $1\leq j\leq N.$ There is a natural notion of ``elliptic" for $\mathrm{DO}_H(M)$ (the Rockland condition). There is also a natural scale of Sobolev spaces adapted to the filtration.
         
     \begin{theorem}
         There exists a pseudodifferential calculus $\Psi_H(M) = \bigcup_{k\in \Itgr} \Psi^k_H(M)$ extending $\mathrm{DO}_H(M),$ 
@@ -457,12 +458,10 @@
     \end{theorem}
 \end{frame}
 
-
-
-\section{Operators defined by submersions}
+\section{Operators defined by submersions}\label{submersion_section}
 
 \begin{frame}
-    \huge{Section 3: Operators defined by submersions}
+    \huge{Section \ref{submersion_section}: Operators defined by submersions}
 \end{frame}
 
 \begin{frame}{Limitations of the exponential map}
@@ -474,7 +473,7 @@
     \[
         \Op(K)u(x) = \int_V K(x,z)u(\Lambda_x(z))\,dz
     \]
-    where $V$ is a linear space and$\mathrm{dim}(V)\geq \mathrm{dim}(M),$ $K$ is a distribution on $M\times V,$ and $\Lambda_x:V\to M$ is a submersion, smoothly depending on $x \in X.$   
+    where $V$ is a linear space and $\mathrm{dim}(V)\geq \mathrm{dim}(M),$ $K$ is a distribution on $M\times V,$ and $\Lambda_x:V\to M$ is a submersion, smoothly depending on $x \in X.$   
 \end{frame}
 
 \begin{frame}{Example: the Grushin operator}
@@ -493,7 +492,45 @@
 \end{frame}
 
 \begin{frame}{Example: the Grushin operator}
-    
+    The natural differential calculus associated to the Grushin operator is built in the following way: let $K$ be a distribution on $\Rl^2\times \Rl^3,$ and let
+    \[
+        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+x_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
+    \]
+    where $\exp$ is the exponential of vector fields.
+\end{frame}
+
+\begin{frame}{The AMY calculus for the Grushin operator}
+\begin{theorem}
+    Let $(x,z,\hbar)\mapsto K(x,z,\hbar)$ denote a distribution on $\Rl^2\times\Rl^3\times \Rl$ which is smooth in $(x,\hbar)$ and compactly supported in $z.$ Assume that for every $\lambda>0$ the difference
+    \[
+        \lambda^{-k-4}K(x,\lambda^{-1}z_1,\lambda^{-1}z_2,\lambda^{-2}z_3,\lambda\hbar)-K(x,z,\hbar)
+    \]
+    is a smooth function of $(x,z,\hbar).$ Let $\Psi^k$ denote the operators of the form 
+    \[
+        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+x_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
+    \]
+    Then $\Psi = \bigcup_{k\in \Itgr} \Psi^k$ has all$^*$ of the desirable properties of a pseudodifferential calculus.
+\end{theorem}
+\pause
+($^*$ The definition of ellipticity is complicated in this example, and they did not prove that elliptic operators have parametrices in the calculus.)
+\end{frame}
+
+\begin{frame}{The general case}
+    In general, let $U\subset \Rl^d$ be an open subset. Let $X_1,\ldots,X_N$ be smooth vector fields on $U$ which span the tangent space at every point. Let $\{w_1,\ldots,w_N\}$ be positive integers. Say that $X_j$ has weight $w_j.$ 
+    \pause
+    Similar to the Grushin example, we can build an algebra of operators of the form
+    \[
+        \Op(K)u(x) = \int_{\Rl^N} K(x,z)u(\exp(z_1X_1+\cdots+z_NX_N)x)\,dz.
+    \]
+    An ``approximate homogeneity" condition, taking into account the weights, gives a nice pseudodifferential calculus $\Psi(U).$
+\end{frame}
+
+\begin{frame}{$L_p$ estimates}
+    Finally, I can promote my own work:
+    \begin{theorem}[M. (2024)]
+        Order zero operators in the AMY calculus are bounded on $L_p$ spaces, for $1<p<\infty.$
+    \end{theorem}
+    This implies (although not obviously) the $L_p$ elliptic regularity of certain differential operators like the Grushin operator, and also some nonlinear PDE.
 \end{frame}
 
 
