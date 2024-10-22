@@ -169,9 +169,6 @@
 
 
 \section{Asteroids}\label{asteroids_section}
-\begin{frame}
-  \huge{Section 0: Asteroids}
-\end{frame}
 
 \begin{frame}
   \Huge{Part \ref{asteroids_section}: Asteroids}
@@ -198,7 +195,7 @@
     \dot{\gamma}(t) \in \mathrm{span}\{X_{\gamma(t)},Y_{\gamma(t)}\},\quad t\geq 0.
   \]
   \pause
-  Despite there being only two available directions, we can reach any point $(x,y,\theta)$ from any other point by travelling on a piecewise-smooth path parallel to $X$ and $Y.$
+  Despite there being only two available directions, we can reach any point $(x,y,\theta)$ from any other point by traveling on a piecewise-smooth path parallel to $X$ and $Y.$
   \pause
   Physically, this is called a \emph{non-holonomic constraint}.
 \end{frame}
@@ -276,7 +273,7 @@
   \[
       \Delta = A^2+B^2+C^2
   \]
-  is the \emph{quadratic casimir element}. It is elliptic.
+  is the \emph{quadratic Casimir element}. It is elliptic.
   \pause
   The operator
   \[
@@ -371,10 +368,12 @@
     \[
         u = QDu+(1-QD)u.
     \]  
-    Since $Q$ is bounded from $W^{s+k}_2(M)$ to $W^{s}_2(M),$ and $1-QP$ has order $-\infty,$ it follows that
-    \[
-        \|u\|_{W^{s+k}_2(M)} \leq \|Q\|_{W^{s+k}_2(M)\to W^s_2(M)}\|Du\|_{W^s_2(M)}+\|1-QD\|_{W^{s+k}_2(M)\to W^s_2(M)}\|u\|_{W^s_2(M)}.
-    \]
+    \pause
+    Since $Q$ and $1-QD$ are bounded from $W^{s+k}_2(M)$ to $W^{s}_2(M),$ it follows that
+    \begin{align*}
+        \|u\|_{W^{s+k}_2(M)} &\leq \|Q\|_{W^{s+k}_2(M)\to W^s_2(M)}\|Du\|_{W^s_2(M)}\\
+        &\quad +\|1-QD\|_{W^{s+k}_2(M)\to W^s_2(M)}\|u\|_{W^s_2(M)}.
+    \end{align*}
   \end{proof}
 \end{frame}
 
@@ -407,8 +406,8 @@
 \end{frame}
 
 \begin{frame}{How to build a pseudodifferential calculus}
-    Specialise to $M = \Rl^d.$ ($^*$ not compact, but close enough.)
-    
+    Specialise to $M = \Rl^d.$ \pause ($^*$ not compact, but close enough.)
+    \pause
     It is easy enough to build parametrices for \emph{constant coefficient} differential operators. These can be realised as convolution operators
     \[
         \Op(k)u(x) := \int_{\Rl^d} k(z)u(x+z)\,dz,\quad u\in C^\infty_c(\Rl^d).
@@ -451,11 +450,20 @@
     \pause
     
     Let $0=H^0<H^1 < \cdots < H^N = TM$ be a filtration of the tangent bundle of a manifold $M.$ Let $\mathrm{DO}_H(M) = \bigcup_{k\geq 0} \mathrm{DO}_H^k(M)$ be the algebra of differential operators with orders counted so that vector fields in $H^j$ have order $j,$ for all $1\leq j\leq N.$ There is a natural notion of ``elliptic" for $\mathrm{DO}_H(M)$ (the Rockland condition). There is also a natural scale of Sobolev spaces adapted to the filtration.
-        
+        \pause
     \begin{theorem}
         There exists a pseudodifferential calculus $\Psi_H(M) = \bigcup_{k\in \Itgr} \Psi^k_H(M)$ extending $\mathrm{DO}_H(M),$ 
         with all of the desirable properties described above.
     \end{theorem}
+    \pause
+    (Pseudodifferential calculi for this and similar situations have been described by Folland, Rothschild, Stein, Melin, Goodman, Beals, Greiner, Stanton, Taylor, Ponge, and others. Van Erp and Yuncken's contribution is in simplifying the definition.)
+\end{frame}
+
+\begin{frame}{The asteroids example}
+  In the Asteroids example, we have $M=\Circ^3,$ and the sections of $H^1$ and $H^2$ are given by
+  \[
+    \Gamma H^1 = \mathrm{span}\{X,Y\},\quad \Gamma H^2 = \mathrm{span}\{\Gamma H^1, [X,Y]\}.
+  \]
 \end{frame}
 
 \section{Operators defined by submersions}\label{submersion_section}
@@ -523,6 +531,10 @@
         \Op(K)u(x) = \int_{\Rl^N} K(x,z)u(\exp(z_1X_1+\cdots+z_NX_N)x)\,dz.
     \]
     An ``approximate homogeneity" condition, taking into account the weights, gives a nice pseudodifferential calculus $\Psi(U).$
+    \pause
+    
+    
+    A similar pseudodifferential calculus for the same situation was described by Street. It is unclear (to me) what the relationship is between the two constructions.
 \end{frame}
 
 \begin{frame}{$L_p$ estimates}
@@ -530,7 +542,7 @@
     \begin{theorem}[M. (2024)]
         Order zero operators in the AMY calculus are bounded on $L_p$ spaces, for $1<p<\infty.$
     \end{theorem}
-    This implies (although not obviously) the $L_p$ elliptic regularity of certain differential operators like the Grushin operator, and also some nonlinear PDE.
+    This implies (although not obviously) $L_p$ elliptic estimates for certain differential operators like the Grushin operator, and also some nonlinear PDE.
 \end{frame}
 
 
