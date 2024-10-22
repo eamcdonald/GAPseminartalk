@@ -166,8 +166,6 @@
   In turn, this work was based on the paper by Androulidakis, Mohsen and Yuncken that can be found at \href{https://arxiv.org/abs/2201.12060v2}{arXiv:2201.12060}.
 \end{frame}
 
-
-
 \section{Asteroids}\label{asteroids_section}
 
 \begin{frame}
@@ -176,7 +174,7 @@
 
 \begin{frame}{Rules of Asteroids}
   In the classic game of asteroids, a player controls a spaceship moving on a two dimensional toroidal space, $\Rl/\Itgr\times \Rl/\Itgr.$ There are two controls available:
-  \begin{enumerate}[{\rm (i)}]
+  \begin{enumerate}
     \item{} The spaceship can be rotated,
     \item{} The spaceship can be moved forward.
   \end{enumerate}
@@ -219,7 +217,7 @@
   \begin{center}
   \includegraphics[width=90mm]{xy_coords_single_paths.png}
   \end{center}
-  (this is displayed in ``unwrapped" coordinates, i.e. we do not take the quotient modulo $\Itgr^2.$).
+%   (this is displayed in ``unwrapped" coordinates, i.e. we do not take the quotient modulo $\Itgr^2.$).
 \end{frame}
 
 \begin{frame}{Random walks}
@@ -234,7 +232,7 @@
   \begin{center}
   \includegraphics[width=90mm]{xyt_coords_multiple_paths.png}
   \end{center}
-  (again, the picture is of $\Rl^3$ rather than $\Circ^3$ for clarity).
+%   (again, the picture is of $\Rl^3$ rather than $\Circ^3$ for clarity).
 \end{frame}
 
 \begin{frame}{Asteroids}
@@ -266,7 +264,7 @@
 \end{frame}
 
 \begin{frame}{More examples}
-  A similar example can be performed on the Lie group $\mathrm{SO}(3).$ The Lie algebra $\mathfrak{so}(3)$
+  A similar example can be seen on the Lie group $\mathrm{SO}(3).$ The Lie algebra $\mathfrak{so}(3)$
   is spanned by three elements, $\{A,B,C\},$ and $[A,B]=C, [C,A] = B,$ etc.
   \pause
   The operator
@@ -303,13 +301,13 @@
   One of the best ways of studying differential operators is to build a pseudodifferential calculus.
   \pause
   Let $M$ be a closed manifold, and let $\mathrm{DO}^k(M)$ be the set of differential operators on $M$
-  of order $m\geq 0.$ That is, locally $P \in \mathrm{DO}^k(M)$ looks like
+  of order $k\geq 0.$ That is, locally $P \in \mathrm{DO}^k(M)$ looks like
   \[
     P = \sum_{|\alpha|\leq k} a_{\alpha}(x)\partial^{\alpha}.
   \]
   Let $\mathrm{DO}(M) = \bigcup_{k\geq 0} \mathrm{DO}^m(M).$
   \pause
-  We could also count ``orders" in a non-traditional way as in the asteroids example, where $X$ and $Y$ have order $1$ and $[X,Y]$ has order $2.$
+  We could also count ``orders" in a non-traditional way as in the Asteroids example, where $X$ and $Y$ have order $1$ and $[X,Y]$ has order $2.$
 \end{frame}
 
 \begin{frame}{What is a pseudodifferential calculus?}
@@ -361,6 +359,8 @@
       \|u\|_{W^{s+k}_2(M)} \leq C_{s,D}(\|Du\|_{W^s_2(M)} + \|u\|_{W^{s}_2(M)}).
     \]
   \end{lemma}
+  \pause
+  In PDE terms, these estimates imply the \emph{a priori regularity} of solutions to the equation $Du=f.$ That is, if $u\in \Dc'(M),$ $f \in W^s_2(M)$ and $Du=f,$ then $u\in W^{s+k}_2(M).$
 \end{frame}
 \begin{frame}{Why a pseudodifferential calculus?}
   \begin{proof}
@@ -384,7 +384,7 @@
     \]
     \pause
     From the above argument, the key to proving these estimates is to show that operators in $\Psi^k(M)$ act boundedly from $W^{s+k}_p(M)$
-    to $W^{s}_p(M).$
+    to $W^{s}_p(M)$ for every $s\in \Rl.$
 \end{frame}
 
 \begin{frame}{Why elliptic estimates in $L_p$-spaces?}
@@ -428,7 +428,7 @@
     \[
         \Op(K)u(x) = \int_{TM_x} K(x,z)u(\exp_xz)\,dz,\quad u\in C^\infty_c(M)
     \]
-    where $K$ is a distribution on the tangent bundle $TM,$ ad $\exp_x$ is an exponential mapping.
+    where $K$ is a distribution on the tangent bundle $TM,$ and $\exp_x$ is an exponential mapping.
 \end{frame}
 
 \begin{frame}{How to build a pseudodifferential calculus}
@@ -456,7 +456,7 @@
         with all of the desirable properties described above.
     \end{theorem}
     \pause
-    (Pseudodifferential calculi for this and similar situations have been described by Folland, Rothschild, Stein, Melin, Goodman, Beals, Greiner, Stanton, Taylor, Ponge, and others. Van Erp and Yuncken's contribution is in simplifying the definition.)
+    (Pseudodifferential calculi for this and similar situations have been described by Folland, Rothschild, Stein, Melin, Goodman, Beals, Greiner, Stanton, Taylor, Ponge, Street, and others. Van Erp and Yuncken's contribution is in simplifying the definition.)
 \end{frame}
 
 \begin{frame}{The asteroids example}
@@ -502,7 +502,7 @@
 \begin{frame}{Example: the Grushin operator}
     The natural differential calculus associated to the Grushin operator is built in the following way: let $K$ be a distribution on $\Rl^2\times \Rl^3,$ and let
     \[
-        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+x_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
+        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+z_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
     \]
     where $\exp$ is the exponential of vector fields.
 \end{frame}
@@ -515,7 +515,7 @@
     \]
     is a smooth function of $(x,z,\hbar).$ Let $\Psi^k$ denote the operators of the form 
     \[
-        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+x_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
+        \Op(K)u(x) = \int_{\Rl^3} K(x,z)u(\exp(z_1X_1+z_2X_2+z_3X_3)x)\,dz,\quad u\in C^\infty_c(\Rl^2).
     \]
     Then $\Psi = \bigcup_{k\in \Itgr} \Psi^k$ has all$^*$ of the desirable properties of a pseudodifferential calculus.
 \end{theorem}
@@ -545,8 +545,14 @@
     This implies (although not obviously) $L_p$ elliptic estimates for certain differential operators like the Grushin operator, and also some nonlinear PDE.
 \end{frame}
 
-
-
+\begin{frame}{$L_p$-estimates}
+  \begin{corollary}
+    Order $k$ operators in the AMY calculus are bounded from $W^{s+k}_p(U)$ to $W^s_p(U)$ for all $s \in \Rl,$
+    and elliptic$^*$ operators obey $L_p$ elliptic estimates.
+  \end{corollary}
+  \pause
+  ($^*$ ellipticity really means ``maximal hypoellipticity")
+\end{frame}
 
 \begin{frame}
 \structure{\begin{center}
